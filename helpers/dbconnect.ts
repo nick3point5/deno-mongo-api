@@ -1,4 +1,7 @@
-import { MongoClient, ObjectId } from "https://deno.land/x/mongo@v0.31.1/mod.ts"
+import { MongoClient, ObjectId } from 'https://deno.land/x/mongo@v0.31.1/mod.ts'
+import { config } from 'https://deno.land/x/dotenv@v3.2.0/mod.ts'
+
+config({ export: true })
 
 interface FriendSchema {
 	_id: ObjectId
@@ -9,7 +12,9 @@ interface FriendSchema {
 
 const client = new MongoClient()
 
-await client.connect('mongodb://127.0.0.1:27017')
+const connectionString = Deno.env.get('MONGO_ATLAS') || 'mongodb://127.0.0.1:27017'
+
+await client.connect(connectionString)
 
 const db = client.database('Friend_list_deno')
 
