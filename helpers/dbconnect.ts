@@ -1,7 +1,7 @@
 import { MongoClient, ObjectId } from 'https://deno.land/x/mongo@v0.31.1/mod.ts'
-import { config } from 'https://deno.land/x/dotenv@v3.2.0/mod.ts'
+// import { config } from 'https://deno.land/x/dotenv@v3.2.0/mod.ts'
 
-config({ export: true })
+// config({ export: true })
 
 interface FriendSchema {
 	_id: ObjectId
