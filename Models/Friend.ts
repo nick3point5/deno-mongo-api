@@ -1,4 +1,5 @@
-import { db, ObjectId } from '../helpers/dbconnect.ts'
+import { ObjectId } from '../deps.ts'
+import { db } from '../helpers/dbconnect.ts'
 
 type FriendSchema = {
 	_id: ObjectId

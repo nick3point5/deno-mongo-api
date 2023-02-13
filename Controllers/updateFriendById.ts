@@ -1,6 +1,5 @@
-import { type Context } from "https://deno.land/x/oak@v11.1.0/mod.ts"
+import { Context, ObjectId } from '../deps.ts'
 import { Friend } from '../Models/Friend.ts'
-import { ObjectId } from '../helpers/dbconnect.ts'
 
 type ContextParams = Context & {
 	params: {

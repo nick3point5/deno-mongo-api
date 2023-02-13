@@ -1,4 +1,4 @@
-import { type Context } from "https://deno.land/x/oak@v11.1.0/mod.ts"
+import { Context } from '../deps.ts'
 import { Friend } from '../Models/Friend.ts'
 
 type BodyType = {

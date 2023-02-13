@@ -1,7 +1,4 @@
-import {
-	Application,
-	Router,
-} from "https://deno.land/x/oak@v11.1.0/mod.ts"
+import { Application, Router } from './deps.ts'
 
 import { getFriend } from './Controllers/getFriend.ts'
 import { getFriendById } from './Controllers/getFriendById.ts'
@@ -17,19 +14,19 @@ router
 	.get('/', getFriend)
 	.get('/:id', getFriendById)
 	.post('/', addFriend)
-	.put("/:id", updateFriendById)
-	.delete("/:id", deleteFriendById)
+	.put('/:id', updateFriendById)
+	.delete('/:id', deleteFriendById)
 
 app.use(async (context, next) => {
 	try {
 		await next()
 	} catch (error) {
-		let  { status } = context.response
-		console.log("error:", status)
+		let { status } = context.response
+		console.log('error:', status)
 		if (status === 404) {
 			status = 500
 		}
-		
+
 		context.response.status = status
 		context.response.body = { error: error.message }
 		context.response.type = 'json'
