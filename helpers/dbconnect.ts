@@ -1,4 +1,4 @@
-import { MongoClient, ObjectId } from '../deps.ts'
+import { MongoClient } from '../deps.ts'
 
 const client = new MongoClient()
 
@@ -7,6 +7,4 @@ const connectionString =
 
 await client.connect(connectionString)
 
-const db = client.database('Friend_list_deno')
-
-export { db, ObjectId }
+export const db = client.database('Friend_list_deno')

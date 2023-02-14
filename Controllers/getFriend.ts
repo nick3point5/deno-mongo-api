@@ -1,7 +1,7 @@
-import { Context } from '../deps.ts'
+import { RouterMiddleware } from '../deps.ts'
 import { Friend } from '../Models/Friend.ts'
 
-export const getFriend = async (context: Context) => {
+export const getFriend: RouterMiddleware<string> = async (context) => {
 	const data = await Friend.find()
 
 	if (data === undefined) {

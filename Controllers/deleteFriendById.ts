@@ -1,13 +1,7 @@
-import { Context, ObjectId } from '../deps.ts'
+import { RouterMiddleware, ObjectId } from '../deps.ts'
 import { Friend } from '../Models/Friend.ts'
 
-type ContextParams = Context & {
-	params: {
-		id: string
-	}
-}
-
-export const deleteFriendById = async (context: ContextParams) => {
+export const deleteFriendById: RouterMiddleware<string> = async (context) => {
 	const { id } = context.params
 
 	const data = await Friend.deleteOne({ _id: new ObjectId(id) })

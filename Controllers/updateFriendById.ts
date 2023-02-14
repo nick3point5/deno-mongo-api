@@ -1,11 +1,5 @@
-import { Context, ObjectId } from '../deps.ts'
+import { type RouterMiddleware, ObjectId } from '../deps.ts'
 import { Friend } from '../Models/Friend.ts'
-
-type ContextParams = Context & {
-	params: {
-		id: string
-	}
-}
 
 type BodyType = {
 	name: string
@@ -13,7 +7,7 @@ type BodyType = {
 	email: string
 }
 
-export const updateFriendById = async (context: ContextParams) => {
+export const updateFriendById: RouterMiddleware<string> = async (context) => {
 	const { id } = context.params
 
 	const body = context.request.body()

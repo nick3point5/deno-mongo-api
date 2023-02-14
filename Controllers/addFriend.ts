@@ -1,4 +1,4 @@
-import { Context } from '../deps.ts'
+import { RouterMiddleware } from '../deps.ts'
 import { Friend } from '../Models/Friend.ts'
 
 type BodyType = {
@@ -7,7 +7,7 @@ type BodyType = {
 	email: string
 }
 
-export const addFriend = async (context: Context) => {
+export const addFriend: RouterMiddleware<string> = async (context) => {
 	const body = context.request.body()
 	const { name, pno, email }: BodyType = await body.value
 
